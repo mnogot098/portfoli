@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import heroBg from "../assets/webdev.svg";
+import programming from "../assets/icons/programming.gif";
 import Typical from "react-typical";
 import { contactLinks } from "../constants";
 import { ThemeContext } from "../themeProvider";
@@ -11,14 +11,26 @@ import cloudDark from "../assets/cloudDark.png";
 const Home = () => {
   const theme = useContext(ThemeContext);
   const darkMode = theme.state.darkMode;
+
+    const handleButtonClick = () => {
+      // Create a URL for the PDF file
+      const pdfUrl = process.env.PUBLIC_URL + '/resume.pdf';
+  
+      // Create an anchor element
+      const a = document.createElement('a');
+      a.href = pdfUrl;
+  
+      // Set the download attribute with the desired file name
+      a.download = 'resume.pdf';
+  
+      // Programmatically click the anchor element to trigger the download
+      a.click();
+    };
+  
   return (
     <>
       <div
-        style={
-          darkMode
-            ? { backgroundImage: `url('${cloud}')`, backgroundSize: "cover" }
-            : { backgroundImage: `url('${cloudDark}'`, backgroundSize: "cover" }
-        }
+        
       >
         <main
           className="mx-auto max-w-7xl px-4 sm:px-6 md:mt-0 lg:px-8 flex flex-col md:flex-row items-center justify-center md:justify-between h-screen"
@@ -29,16 +41,14 @@ const Home = () => {
               <motion.span
                 className={darkMode ? "block text-black" : " text-white"}
               >
-                Hi, I am Aakash
+                Hi, I am Mohamed
               </motion.span>
               <span className="block text-blue-500 z-0 lg:inline">
                 <Typical
                   steps={[
                     "Front End Developer",
                     1000,
-                    "Full Stack Developer",
-                    1000,
-                    "Mobile Developer",
+                    "Backend Developer",
                     1000,
                   ]}
                   loop={Infinity}
@@ -52,14 +62,15 @@ const Home = () => {
                   : "mt-3 text-base text-white sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0"
               }
             >
-              I am a Front-End / Full-Stack Developer. I am currently working at
-              CloudStok Technologies as a Front-End Developer
+              I work as a Front-End / Full-Stack Developer in the technology
+              industry, focusing on front-end development
             </p>
             <div className="flex md:justify-start ">
               {contactLinks.map((el) => (
                 <a
                   href={el.link}
-                  className="mr-5 cursor-pointer mt-8 hover:scale-125"
+                  target="_blank"
+                  className="mr-5 cursor-pointer mt-8 hover:scale-125 transition-transform duration-300 ease-in-out"
                 >
                   <img alt="" src={el.url} />
                   {/* <p className="text-md mt-2 hover:hidden">{el.name}</p> */}
@@ -68,9 +79,9 @@ const Home = () => {
             </div>
             <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
               <div className="mt-3 sm:mt-0 cursor-pointer w-1/2">
-                <Link className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-500 hover:bg-blue-200 md:py-4 md:text-lg md:px-10">
+                <button onClick={handleButtonClick} className="w-full flex items-center justify-center px-5 py-3 border-2 border-black-600 text-black font-medium rounded-md text-black md:py-4 md:text-lg md:px-10 hover:bg-slate-300">
                   Resume
-                </Link>
+                </button>
               </div>
             </div>
           </div>
@@ -87,7 +98,7 @@ const Home = () => {
               },
               hidden: { opacity: 1, y: 80 },
             }}
-            src={heroBg}
+            src={programming}
             alt=""
             className="md:w-3/6 hidden sm:block"
           />

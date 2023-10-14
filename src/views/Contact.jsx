@@ -1,10 +1,46 @@
-import React, { useContext } from "react";
-import { contactLinks } from "../constants";
+import React, { useContext, useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 import { ThemeContext } from "../themeProvider";
 
 const Contact = () => {
   const theme = useContext(ThemeContext);
   const darkMode = theme.state.darkMode;
+  const form = useRef();
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_sf7ppoe",
+        "template_54m0nkj",
+        form.current,
+        "V5lUQFFzJZSJGAWZ4"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          setIsSuccess(true);
+          setIsError(false);
+        },
+        (error) => {
+          console.error(error);
+          setIsSuccess(false);
+          setIsError(true);
+        }
+      );
+  };
+
+  const closeSuccessMessage = () => {
+    setIsSuccess(false);
+  };
+
+  const closeErrorMessage = () => {
+    setIsError(false);
+  };
+
   return (
     <div
       id="contact"
@@ -14,140 +50,114 @@ const Contact = () => {
           : "bg-black pt-24 text-white md:h-screen"
       }
     >
-      <div className="max-w-7xl mx-auto x-4 sm:px-6 lg:px-8 px-4 ">
+      <div className="max-w-7xl mx-auto x-4 sm:px-6 lg:px-8 px-4">
         <h2 className="text-5xl font-bold px-4 md:px-0 text-center z-0">
           Contact
         </h2>
-        <div>
-          <h4 className="mt-12 text-3xl font-semibold text-blue-500">
-            Connect with me
-          </h4>
-          <p className="text-gray-500 text-xl">
-            If you want to know more about me or my work, or if you would just
-            <br />
-            like to say hello, send me a message. I'd love to hear from you.
-          </p>
-        </div>
-        <div className="flex justify-between items-center md:items-stretch  flex-col md:flex-row pb-24">
-          <div className="w-full md:pr-8">
-            <form>
-              <div class="my-6">
-                <label
-                  for="name"
-                  class={
-                    darkMode
-                      ? "block mb-2 text-lg font-medium text-gray-900"
-                      : "block mb-2 text-lg font-medium text-white"
-                  }
-                >
-                  Name
-                </label>
-                <input
-                  type="email"
-                  id="name"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="Enter your name"
-                  required
-                />
-              </div>
-              <div className="mb-4">
-                <label
-                  for="email"
-                  class={
-                    darkMode
-                      ? "block mb-2 text-lg font-medium text-gray-900"
-                      : "block mb-2 text-lg font-medium text-white"
-                  }
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="Enter your email"
-                  required
-                />
-              </div>
-              <div className="mb-4">
-                <label
-                  for="message"
-                  class={
-                    darkMode
-                      ? "block mb-2 text-lg font-medium text-gray-900"
-                      : "block mb-2 text-lg font-medium text-white"
-                  }
-                >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 h-28 w-full text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="Enter your message"
-                  required
-                />
-              </div>
-              <div className="flex justify-between ">
-                <div className="underline">
-                  <a href="mailto:aakash.sh858791@gmail.com">
-                    Send me email directly
-                  </a>
-                </div>
-                <button className="bg-indigo-500 text-white px-4 py-2 w-40 rounded-md hover:bg-indigo-400">
-                  <a href="mailto:aakash.sh858791@gmail.com">Submit</a>
-                </button>
-              </div>
-            </form>
+        {isSuccess && (
+          <div className="bg-green-200 p-2 text-green-600 rounded mt-4 flex justify-between items-center">
+            <span>Email sent successfully!</span>
+            <button
+              onClick={closeSuccessMessage}
+              className="text-green-500 cursor-pointer mx-4"
+            >
+              X
+            </button>
           </div>
-          <div className="w-full flex flex-col md:items-end  mt-12 md:mt-6">
-            {/* <h1 className="text-3xl font-bold">Phone</h1>
-            <a
-              href="hello"
-              className="mb-12 mt-4 font-semibold text-blue-700 block uppercase"
+        )}
+        {isError && (
+          <div className="bg-red-200 p-2 text-red-600 rounded mt-4 flex justify-between items-center">
+            Error sending email. Please try again.{" "}
+            <button
+              onClick={closeErrorMessage}
+              className="text-red-500 ml-2 cursor-pointer mx-4"
             >
-              +91 8285631499
-            </a> */}
-            <h1 className="text-3xl font-bold">Email</h1>
-            <a
-              href="hello"
-              className="mb-12 mt-4 font-semibold text-blue-700 block uppercase"
+              X
+            </button>
+          </div>
+        )}
+        <div></div>
+        <form ref={form} onSubmit={sendEmail}>
+          <div class="my-6">
+            <label
+              for="name"
+              class={
+                darkMode
+                  ? "block mb-2 text-lg font-medium text-gray-900"
+                  : "block mb-2 text-lg font-medium text-white"
+              }
             >
-              aakash.sh858791@gmail.com
-            </a>
-            <h1 className="text-3xl  font-bold">Address</h1>
-            <a
-              href="hello"
-              className="mt-4  mb-12 md:text-right font-semibold text-blue-700 block uppercase"
+              Name
+            </label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Enter your name"
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label
+              for="email"
+              class={
+                darkMode
+                  ? "block mb-2 text-lg font-medium text-gray-900"
+                  : "block mb-2 text-lg font-medium text-white"
+              }
             >
-              Jhilmil Colony, Delhi
-              <br />
-              India
-            </a>
-            <h1 className="text-3xl  font-bold">Social</h1>
-            <ul className="flex">
-              {contactLinks.map((el) => (
-                <a
-                  href={el.link}
-                  className="md:ml-6 md:mr-0 mr-6 cursor-pointer mt-4 hover:scale-125 flex flex-col justify-center items-center"
-                >
-                  <img alt="" src={el.url} />
-                  {/* <p className="text-md mt-2 hover:hidden">{el.name}</p> */}
-                </a>
-              ))}
-            </ul>
+              Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label
+              for="message"
+              class={
+                darkMode
+                  ? "block mb-2 text-lg font-medium text-gray-900"
+                  : "block mb-2 text-lg font-medium text-white"
+              }
+            >
+              Message
+            </label>
+            <textarea
+              id="message"
+              class="bg-gray-50 border border-gray-300 text-gray-900 h-28 w-full text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray
+                  dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Enter your message"
+              required
+              name="message"
+            />
+          </div>
+          <div className="flex justify-between ">
+            <button className="bg-indigo-500 text-white px-4 py-2 w-40 rounded-md hover:bg-indigo-400">
+              Submit
+            </button>
+          </div>
+        </form>
+        <div className="mt-5 sm:mt-8">
+          <div className="mt-3 sm:mt-0 w-full flex">
+            <p className="text-base text-gray-500">
+              <span className="font-bold">Email: </span>mohamedng098@gmail
+              //&nbsp;
+            </p>
+            <p className="text-base text-gray-500">
+              &nbsp;<span className="font-bold">Address: </span>
+              <a className="text-decoration-line: underline" href="https://www.google.com/maps/place/Rabat/data=!4m2!3m1!1s0xda76b871f50c5c1:0x7ac946ed7408076b?sa=X&ved=2ahUKEwi-m_7_-fKBAxXRfKQEHVCSDUQQ8gF6BAgKEAA&ved=2ahUKEwi-m_7_-fKBAxXRfKQEHVCSDUQQ8gF6BAgLEAI" target="_blank">
+                Rabat, Morocco
+              </a>
+            </p>
           </div>
         </div>
-      </div>
-      <div
-        className={
-          darkMode
-            ? "w-full bg-white text-black text-lg py-3 flex justify-center md:mt-20"
-            : "w-full bg-gray-900 text-white text-lg py-3 flex justify-center md:mt-20"
-        }
-      >
-        Made with
-        <div className="text-red-500 px-2 text-2xl">&#10084;</div>
-        by Aakash Sharma
       </div>
     </div>
   );

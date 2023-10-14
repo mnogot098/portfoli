@@ -20,7 +20,7 @@ const About = () => {
         </h2>
         <div>
           <motion.div>
-            <h4 className="mt-12 text-3xl font-semibold text-blue-500">
+            <h4 className="mt-12 text-2xl font-semibold text-blue-500">
               A bit about me
             </h4>
             <p
@@ -30,19 +30,16 @@ const About = () => {
                   : "mt-4 text-xl text-justify text-white"
               }
             >
-              I'm a self-taught web developer and Mobile App Developer with
-              experience in designing new features from ideation to production,
-              implementation of wireframes and design flows into high
-              performance software applications. I take into consideration the
-              user experience while writing reusable and efficient code. I
-              passionately combine good design, technology, and innovation in
-              all my projects, which I like to accompany from the first idea to
-              release.Currently, I'm focused on the backend development.
+              I'm a self-taught Full-Stack Developer with a passion for crafting
+              web applications. My expertise spans the entire
+              software development lifecycle, from conceptualizing new features
+              to implementing wireframes and design flows into high-performance
+              software solutions. I prioritize the user experience while writing
+              clean, reusable, and efficient code.
             </p>
           </motion.div>
-          <motion.div
-          >
-            <h4 className="mt-12 text-3xl font-semibold text-blue-500">
+          <motion.div>
+            <h4 className="mt-12 text-2xl font-semibold text-blue-500">
               Technologies and Tools
             </h4>
             <p
@@ -72,7 +69,7 @@ const About = () => {
                   },
                   hidden: { opacity: 1, y: 80 },
                 }}
-                className="py-2 px-4 bg-gray-50 md:m-4 mx-2 mt-6 rounded-lg flex items-center hover:scale-125 cursor-pointer md:w-48 w-40"
+                className="py-2 px-4 bg-gray-50 md:m-4 mx-2 mt-6 rounded-lg flex items-center hover:scale-125 md:w-48 w-40"
               >
                 <img alt="" src={el.link} className="w-12" />
                 <h4 className="text-md ml-4">{el.name}</h4>

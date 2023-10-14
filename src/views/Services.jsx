@@ -7,9 +7,9 @@ const Services = () => {
   const theme = useContext(ThemeContext);
   return (
     <div
-      className={
-        theme.state.darkMode ? "pb-20 bg-fixed bg-gray-100" : "pb-20 bg-black"
-      }
+      style={{
+        marginLeft: "5px",
+      }}
       // style={{backgroundImage: `url('https://i.pinimg.com/originals/b0/b1/f5/b0b1f5d33de00e3c21ad29bbba25e31b.gif')`}}>
     >
       <div
@@ -26,12 +26,16 @@ const Services = () => {
           Services
         </h2>
         <div className="">
-          <h4 className="mt-16 text-3xl font-semibold text-blue-500">
+          <h4 className="mt-16 text-2xl font-semibold text-blue-500">
             What I Provide
           </h4>
           <div className="mt-8 flex md:flex-row justify-between flex-col md:items-stretch items-center ">
             {serviceData.map((el) => (
               <motion.div
+                style={{
+                  marginLeft:"10px",
+                  border:"grey 1px solid"
+                }}
                 initial="hidden"
                 whileInView={"visible"}
                 variants={{
@@ -40,13 +44,13 @@ const Services = () => {
                 }}
                 className={
                   theme.state.darkMode
-                    ? "md:w-96 p-4 bg-white rounded-lg flex items-center flex-col mt-8"
-                    : "md:w-96 p-4 bg-gray-100 rounded-lg flex items-center flex-col mt-8"
+                    ? "md:w-96 p-4 bg-white flex items-center flex-col mt-8"
+                    : "md:w-96 p-4 bg-gray-100 flex items-center flex-col mt-8"
                 }
               >
-                <img src={el.img} alt="" />
-                <h4 className="text-xl font-bold mt-4">{el.name}</h4>
-                <p className="text-lg mt-2 text-justify">{el.desc}</p>
+                <img src={el.img} alt="" width={60} />
+                <h4 className="text-xl font-bold mt-4 text-cente">{el.name}</h4>
+                <p className="text-lg mt-2 text-center">{el.desc}</p>
               </motion.div>
             ))}
           </div>

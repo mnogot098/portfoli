@@ -7,6 +7,7 @@ import Services from "./views/Services";
 import Projects from "./views/Projects";
 import LoadingScreen from "./components/LoadingScreen";
 import { ThemeProvider } from "./themeProvider";
+import Blogs from "./views/Blogs";
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -25,6 +26,7 @@ function App() {
             <About />
             <Services />
             <Projects />
+            <Blogs/>
             <Contact />
           </div>
 

@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-scroll";
 import { ThemeContext } from "../themeProvider";
 import { motion, AnimatePresence } from "framer-motion";
-import Hamburger from "hamburger-react";
 
 const Navbar = () => {
   const theme = useContext(ThemeContext);
@@ -26,6 +25,10 @@ const Navbar = () => {
       route: "projects",
     },
     {
+      name: "Blogs",
+      route: "blogs",
+    },
+    {
       name: "Contact",
       route: "contact",
     },
@@ -44,8 +47,8 @@ const Navbar = () => {
       <nav
         className={
           darkMode
-            ? "bg-white border-gray-200 z-50 shadow-lg md:px-8 px-1 fixed w-full top-0"
-            : "bg-gray-700 border-gray-200 z-50 shadow-lg md:px-8 px-1 fixed w-full top-0"
+            ? "bg-white border-gray-200 z-50 md:px-8 px-1 fixed w-full top-0"
+            : "bg-gray-700 border-gray-200 z-50 md:px-8 px-1 fixed w-full top-0"
         }
       >
         <div className="flex justify-between items-center py-2 md:py-4 md:px-2 pl-2 mx-auto">
@@ -58,7 +61,7 @@ const Navbar = () => {
                   : "text-xl font-medium text-decoration-none whitespace-nowrap text-white"
               }
             >
-              {`<ꪖꪖƙꪖకꫝ కꫝꪖꪹꪑꪖ/>`}
+              {`<MOHAMED NOGOT/>`}
             </a>
           </div>
           <div class="hidden justify-between items-center w-full md:flex md:w-auto ">
@@ -76,8 +79,8 @@ const Navbar = () => {
                     smooth={true}
                     className={
                       darkMode
-                        ? "block py-2 px-3 text-black hover:bg-blue-500 hover:text-white rounded-md"
-                        : "block py-2 px-3 text-white hover:bg-blue-500 hover:text-black rounded-md"
+                        ? "block py-2 px-3 text-black hover:border-b-2 hover:border-blue-500"
+                        : "block py-2 px-3 text-white hover:border-b-2"
                     }
                   >
                     {el.name}
@@ -100,33 +103,6 @@ const Navbar = () => {
                 />
               )}
             </div>
-          </div>
-
-          <div className="flex md:hidden items-center">
-            <div onClick={() => toggleTheme()}>
-              {darkMode ? (
-                <img
-                  src="https://img.icons8.com/external-flaticons-flat-flat-icons/64/000000/external-sun-lighting-flaticons-flat-flat-icons.png"
-                  className="w-6 mr-4 cursor-pointer hover:scale-1.50 block"
-                  alt=""
-                />
-              ) : (
-                <img
-                  src="https://img.icons8.com/external-prettycons-lineal-color-prettycons/49/000000/external-moon-astrology-and-symbology-prettycons-lineal-color-prettycons.png"
-                  alt=""
-                  className="w-6 mr-4 cursor-pointer hover:scale-1.50 block"
-                />
-              )}
-            </div>
-
-            <Hamburger
-              toggled={toggle}
-              size={22}
-              duration={0.8}
-              distance={"lg"}
-              toggle={setToggle}
-              color={darkMode ? "#000000" : "#ffffff"}
-            />
           </div>
         </div>
         {/* Mobile view nav bar */}
