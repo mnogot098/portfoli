@@ -16,7 +16,6 @@ function App() {
   }, [])
 
   return (
-    <ThemeProvider>
       <>
 
         {!loading ? (
@@ -34,8 +33,6 @@ function App() {
           <LoadingScreen />
         )}
       </>
-    </ThemeProvider>
-
   );
 }
 

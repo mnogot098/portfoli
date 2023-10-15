@@ -1,10 +1,9 @@
-import React, { useContext } from "react";
-import { serviceData } from "../constants";
-import { ThemeContext } from "../themeProvider";
 import { motion } from "framer-motion";
+import React from "react";
+import { v4 as uuidv4 } from "uuid";
+import { serviceData } from "../constants";
 
 const Services = () => {
-  const theme = useContext(ThemeContext);
   return (
     <div
       style={{
@@ -17,11 +16,7 @@ const Services = () => {
         id="services"
       >
         <h2
-          className={
-            theme.state.darkMode
-              ? "text-5xl font-bold px-4 md:px-0 text-center"
-              : "text-5xl font-bold px-4 md:px-0 text-center text-white"
-          }
+          className={"text-5xl font-bold px-4 md:px-0 text-center text-white"}
         >
           Services
         </h2>
@@ -32,9 +27,10 @@ const Services = () => {
           <div className="mt-8 flex md:flex-row justify-between flex-col md:items-stretch items-center ">
             {serviceData.map((el) => (
               <motion.div
+                key={uuidv4()}
                 style={{
-                  marginLeft:"10px",
-                  border:"grey 1px solid"
+                  marginLeft: "10px",
+                  border: "grey 1px solid",
                 }}
                 initial="hidden"
                 whileInView={"visible"}
@@ -43,9 +39,7 @@ const Services = () => {
                   hidden: { opacity: 0, scale: 0 },
                 }}
                 className={
-                  theme.state.darkMode
-                    ? "md:w-96 p-4 bg-white flex items-center flex-col mt-8"
-                    : "md:w-96 p-4 bg-gray-100 flex items-center flex-col mt-8"
+                  "md:w-96 p-4 bg-gray-100 flex items-center flex-col mt-8"
                 }
               >
                 <img src={el.img} alt="" width={60} />

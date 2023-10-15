@@ -3,8 +3,6 @@ import emailjs from "@emailjs/browser";
 import { ThemeContext } from "../themeProvider";
 
 const Contact = () => {
-  const theme = useContext(ThemeContext);
-  const darkMode = theme.state.darkMode;
   const form = useRef();
   const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -44,10 +42,7 @@ const Contact = () => {
   return (
     <div
       id="contact"
-      className={
-        darkMode
-          ? "bg-gray-100 pt-24 md:h-screen"
-          : "bg-black pt-24 text-white md:h-screen"
+      className={"bg-black pt-24 text-white md:h-screen"
       }
     >
       <div className="max-w-7xl mx-auto x-4 sm:px-6 lg:px-8 px-4">
@@ -78,13 +73,10 @@ const Contact = () => {
         )}
         <div></div>
         <form ref={form} onSubmit={sendEmail}>
-          <div class="my-6">
+          <div className="my-6">
             <label
               for="name"
-              class={
-                darkMode
-                  ? "block mb-2 text-lg font-medium text-gray-900"
-                  : "block mb-2 text-lg font-medium text-white"
+              className={"block mb-2 text-lg font-medium text-white"
               }
             >
               Name
@@ -93,7 +85,7 @@ const Contact = () => {
               type="text"
               name="name"
               id="name"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Enter your name"
               required
             />
@@ -101,10 +93,7 @@ const Contact = () => {
           <div className="mb-4">
             <label
               for="email"
-              class={
-                darkMode
-                  ? "block mb-2 text-lg font-medium text-gray-900"
-                  : "block mb-2 text-lg font-medium text-white"
+              className={"block mb-2 text-lg font-medium text-white"
               }
             >
               Email
@@ -113,7 +102,7 @@ const Contact = () => {
               type="email"
               name="email"
               id="email"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Enter your email"
               required
             />
@@ -121,17 +110,14 @@ const Contact = () => {
           <div className="mb-4">
             <label
               for="message"
-              class={
-                darkMode
-                  ? "block mb-2 text-lg font-medium text-gray-900"
-                  : "block mb-2 text-lg font-medium text-white"
+              className={"block mb-2 text-lg font-medium text-white"
               }
             >
               Message
             </label>
             <textarea
               id="message"
-              class="bg-gray-50 border border-gray-300 text-gray-900 h-28 w-full text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray
+              className="bg-gray-50 border border-gray-300 text-gray-900 h-28 w-full text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray
                   dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Enter your message"
               required
