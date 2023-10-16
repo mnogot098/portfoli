@@ -42,12 +42,12 @@ const Contact = () => {
   return (
     <div
       id="contact"
-      className={"bg-black pt-24 text-white md:h-screen"
+      className={"bg-white text-black pt-24 md:h-screen"
       }
     >
-      <div className="max-w-7xl mx-auto x-4 sm:px-6 lg:px-8 px-4">
-        <h2 className="text-5xl font-bold px-4 md:px-0 text-center z-0">
-          Contact
+      <div className="max-w-7xl mx-auto x-4 sm:px-6 lg:px-8 px-4 border mt-4 py-8">
+        <h2 className="text-5xl font-bold px-4 md:px-0 text-left z-0">
+          Contact me
         </h2>
         {isSuccess && (
           <div className="bg-green-200 p-2 text-green-600 rounded mt-4 flex justify-between items-center">
@@ -73,7 +73,7 @@ const Contact = () => {
         )}
         <div></div>
         <form ref={form} onSubmit={sendEmail}>
-          <div className="my-6">
+          <div className="my-2">
             <label
               for="name"
               className={"block mb-2 text-lg font-medium text-white"
@@ -90,7 +90,7 @@ const Contact = () => {
               required
             />
           </div>
-          <div className="mb-4">
+          <div className="mb-2">
             <label
               for="email"
               className={"block mb-2 text-lg font-medium text-white"
@@ -110,7 +110,7 @@ const Contact = () => {
           <div className="mb-4">
             <label
               for="message"
-              className={"block mb-2 text-lg font-medium text-white"
+              className={"block mb-1 text-lg font-medium text-white"
               }
             >
               Message
@@ -124,26 +124,12 @@ const Contact = () => {
               name="message"
             />
           </div>
-          <div className="flex justify-between ">
-            <button className="bg-indigo-500 text-white px-4 py-2 w-40 rounded-md hover:bg-indigo-400">
-              Submit
+          <div className="flex justify-end ">
+            <button className="bg-green-600 text-white px-4 py-2 w-40 hover:bg-green-500 transition-all ease-in-out duration-300">
+              Send
             </button>
           </div>
         </form>
-        <div className="mt-5 sm:mt-8">
-          <div className="mt-3 sm:mt-0 w-full flex">
-            <p className="text-base text-gray-500">
-              <span className="font-bold">Email: </span>mohamedng098@gmail
-              //&nbsp;
-            </p>
-            <p className="text-base text-gray-500">
-              &nbsp;<span className="font-bold">Address: </span>
-              <a className="text-decoration-line: underline" href="https://www.google.com/maps/place/Rabat/data=!4m2!3m1!1s0xda76b871f50c5c1:0x7ac946ed7408076b?sa=X&ved=2ahUKEwi-m_7_-fKBAxXRfKQEHVCSDUQQ8gF6BAgKEAA&ved=2ahUKEwi-m_7_-fKBAxXRfKQEHVCSDUQQ8gF6BAgLEAI" target="_blank">
-                Rabat, Morocco
-              </a>
-            </p>
-          </div>
-        </div>
       </div>
     </div>
   );

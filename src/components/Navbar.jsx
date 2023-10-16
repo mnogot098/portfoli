@@ -37,7 +37,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className={"bg-gray-700 z-50 md:px-8 px-1 fixed w-full top-0 "}>
+      <nav className={"bg-white z-50 md:px-8 px-1 fixed w-full top-0"}>
         <div className="flex justify-between items-center py-2 md:py-4 md:px-2 pl-2 mx-auto">
           <div className="flex items-center cursor-pointer">
             <a
@@ -51,9 +51,7 @@ const Navbar = () => {
           </div>
           <div className="hidden justify-between items-center w-full md:flex md:w-auto ">
             <ul
-              className={
-                "flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-md md:font-medium"
-              }
+              className={"flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-md md:font-medium"}
             >
               {links.map((el) => (
                 <li className="cursor-pointer" key={uuidv4()}>
@@ -62,7 +60,7 @@ const Navbar = () => {
                     activeClass={"text-white bg-blue-500"}
                     spy={true}
                     smooth={true}
-                    className={"block py-2 px-3 text-white hover:border-b-2"}
+                    className={"block py-2 px-3 text-black hover:no-underline hover:border-b-2"}
                   >
                     {el.name}
                   </Link>

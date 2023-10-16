@@ -8,6 +8,7 @@ import Projects from "./views/Projects";
 import LoadingScreen from "./components/LoadingScreen";
 import { ThemeProvider } from "./themeProvider";
 import Blogs from "./views/Blogs";
+import Footer from "./views/Footer";
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -27,6 +28,7 @@ function App() {
             <Projects />
             <Blogs/>
             <Contact />
+            <Footer />
           </div>
 
         ) : (

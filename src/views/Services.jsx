@@ -12,11 +12,11 @@ const Services = () => {
       // style={{backgroundImage: `url('https://i.pinimg.com/originals/b0/b1/f5/b0b1f5d33de00e3c21ad29bbba25e31b.gif')`}}>
     >
       <div
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 px-4 pt-20"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 px-4 pt-20 border mt-8"
         id="services"
       >
         <h2
-          className={"text-5xl font-bold px-4 md:px-0 text-center text-white"}
+          className={"text-5xl font-bold px-4 md:px-0 text-center text-black"}
         >
           Services
         </h2>
@@ -43,7 +43,7 @@ const Services = () => {
                 }
               >
                 <img src={el.img} alt="" width={60} />
-                <h4 className="text-xl font-bold mt-4 text-cente">{el.name}</h4>
+                <h4 className="text-xl font-bold mt-4 text-center">{el.name}</h4>
                 <p className="text-lg mt-2 text-center">{el.desc}</p>
               </motion.div>
             ))}
