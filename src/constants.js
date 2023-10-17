@@ -2,6 +2,11 @@ import front from "./assets/icons/front.png";
 import consultaion from "./assets/icons/consultation.png";
 import ui from "./assets/icons/ui_ux.png";
 import backend from "./assets/icons/backend.png";
+
+import stackoverflow from "../src/assets/icons/stackoverflow.png";
+import linkedin from "../src/assets/icons/linkedin.png";
+import github from "../src/assets/icons/github.png";
+
 export const techStack = [
   {
     name: "TypeScript",
@@ -91,17 +96,17 @@ export const techStack = [
 export const contactLinks = [
   {
     name: "Stack Overflow",
-    url: "https://img.icons8.com/external-tal-revivo-color-tal-revivo/40/000000/external-stack-overflow-is-a-question-and-answer-site-for-professional-logo-color-tal-revivo.png",
+    url: stackoverflow,
     link: "https://stackoverflow.com/users/20076641/mohamed-nogot",
   },
   {
     name: "Github",
-    url: "https://img.icons8.com/doodle/40/000000/github--v1.png",
+    url: github,
     link: "https://github.com/mnogot098",
   },
   {
     name: "LinkedIn",
-    url: "https://img.icons8.com/doodle/40/000000/linkedin--v2.png",
+    url: linkedin,
     link: "https://www.linkedin.com/in/nogot/",
   },
 ];

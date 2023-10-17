@@ -2,10 +2,12 @@ import React from "react";
 import email from "../assets/icons/email.png";
 import phone from "../assets/icons/phone.png";
 import location from "../assets/icons/location.png";
+import { contactLinks } from "../constants";
+import { v4 as uuidv4 } from "uuid";
 
 const Footer = () => {
   return (
-    <div id="footer" className="bg-gray-600 flex justify-center py-20 text-black border-t-2 border-gray weight-lg">
+    <div id="footer" className=" flex justify-center py-20 text-black border-t-2 border-gray weight-lg">
       <div className="flex items-center py-2 mx-4 hover:border-b hover:border-gray-500 transition duration-300 ">
         <img src={email} alt="not found" className="h-10 mr-2"/>
         <span>mohamedng098@gmail.com</span>
@@ -18,6 +20,19 @@ const Footer = () => {
         <img src={location} alt="not found" className="h-9 mx-2"/>
         <span>Rabat, Morocco</span>
       </div>
+      <div className="flex ml-12">
+              {contactLinks.map((el) => (
+                <a
+                  key={uuidv4()}
+                  href={el.link}
+                  target="_blank"
+                  className="mr-5 cursor-pointer hover:scale-125 transition-transform duration-300 ease-in-out"
+                >
+                  <img alt="" src={el.url} className="h-8 mt-3"/>
+                  {/* <p className="text-md mt-2 hover:hidden">{el.name}</p> */}
+                </a>
+              ))}
+            </div>
     </div>
   );
 };

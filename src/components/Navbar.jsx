@@ -43,7 +43,7 @@ const Navbar = () => {
             <a
               href="/"
               className={
-                "text-xl font-medium text-decoration-none whitespace-nowrap text-white"
+                "text-xl font-medium text-decoration-none whitespace-nowrap text-black"
               }
             >
               {`<MOHAMED NOGOT/>`}
