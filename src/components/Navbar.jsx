@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
 import { Link } from "react-scroll";
 import { v4 as uuidv4 } from 'uuid';
+import logo from "../assets/logo.jpg";
 
 const Navbar = () => {
   const links = [
@@ -46,7 +47,7 @@ const Navbar = () => {
                 "text-xl font-medium text-decoration-none whitespace-nowrap text-black"
               }
             >
-              {`<MOHAMED NOGOT/>`}
+              <img src={logo} className="h-12" alt="not found"/>
             </a>
           </div>
           <div className="hidden justify-between items-center w-full md:flex md:w-auto ">
