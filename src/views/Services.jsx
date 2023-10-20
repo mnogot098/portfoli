@@ -14,7 +14,6 @@ const Services = () => {
   },[]);
   return (
     <div
-      // style={{backgroundImage: `url('https://i.pinimg.com/originals/b0/b1/f5/b0b1f5d33de00e3c21ad29bbba25e31b.gif')`}}>
     >
       <div
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 px-4 pt-20 border mt-8"
@@ -43,7 +42,7 @@ const Services = () => {
                   "md:w-96 p-4 flex items-center flex-col mt-8 border mx-2 hover:shadow-md duration-300 ease-in-out"
                 }
               >
-                <img src={process.env.PUBLIC_URL + el.image_url} alt="not found" width={60} />
+                <img src={process.env.PUBLIC_URL + el.image_url} alt="not found" width={"60rem"} height="8rem" />
                 <h4 className="text-xl font-bold mt-4 text-center">{el.name}</h4>
                 <p className="text-lg mt-2 text-center">{el.description}</p>
               </motion.div>
