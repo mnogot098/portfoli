@@ -61,7 +61,7 @@ const Navbar = () => {
                     activeClass={"text-white bg-blue-500"}
                     spy={true}
                     smooth={true}
-                    className={"block py-2 px-3 text-black hover:no-underline hover:border-b-2"}
+                    className={"block py-2 px-3 text-black hover:no-underline"}
                   >
                     {el.name}
                   </Link>

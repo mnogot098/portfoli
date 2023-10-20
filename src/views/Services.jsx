@@ -1,14 +1,19 @@
+import axios from "axios";
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { serviceData } from "../constants";
 
 const Services = () => {
+
+  const [services,setservices] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:8000/services')
+       .then((res) => setservices(res.data))
+       .catch((err) => console.log(err))
+  },[]);
   return (
     <div
-      style={{
-        marginLeft: "5px",
-      }}
       // style={{backgroundImage: `url('https://i.pinimg.com/originals/b0/b1/f5/b0b1f5d33de00e3c21ad29bbba25e31b.gif')`}}>
     >
       <div
@@ -24,14 +29,10 @@ const Services = () => {
           <h4 className="mt-16 text-2xl font-semibold text-blue-500">
             What I Provide
           </h4>
-          <div className="mt-8 flex md:flex-row justify-between flex-col md:items-stretch items-center ">
-            {serviceData.map((el) => (
+          <div className="my-8 flex md:flex-row justify-between flex-col md:items-stretch items-center ">
+            {services.map((el) => (
               <motion.div
                 key={uuidv4()}
-                style={{
-                  marginLeft: "10px",
-                  border: "grey 1px solid",
-                }}
                 initial="hidden"
                 whileInView={"visible"}
                 variants={{
@@ -39,12 +40,12 @@ const Services = () => {
                   hidden: { opacity: 0, scale: 0 },
                 }}
                 className={
-                  "md:w-96 p-4 bg-gray-100 flex items-center flex-col mt-8"
+                  "md:w-96 p-4 flex items-center flex-col mt-8 border mx-2 hover:shadow-md duration-300 ease-in-out"
                 }
               >
-                <img src={el.img} alt="" width={60} />
+                <img src={process.env.PUBLIC_URL + el.image_url} alt="not found" width={60} />
                 <h4 className="text-xl font-bold mt-4 text-center">{el.name}</h4>
-                <p className="text-lg mt-2 text-center">{el.desc}</p>
+                <p className="text-lg mt-2 text-center">{el.description}</p>
               </motion.div>
             ))}
           </div>

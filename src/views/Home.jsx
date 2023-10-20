@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import React from "react";
 import Typical from "react-typical";
-import consoleImage from "../assets/icons/console.png";
-import programmingImage from "../assets/icons/programming.gif";
+import consoleImage from "../assets/console.png";
+import programmingImage from "../assets/programming.gif";
 import { FilePdfOutlined } from "@ant-design/icons";
 
 const Home = () => {
