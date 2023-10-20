@@ -27,7 +27,7 @@ const Blogs = () => {
               <div className="flex justify-end">
                 <a
                   href={blog.linkUrl}
-                  className="inline-flex items-center m-1 py-2 px-3 text-sm font-medium text-center text-white bg-blue-500 hover:bg-blue-600 hover:no-underline hover:text-white transition ease-in-out delay-200"
+                  className="inline-flex items-center m-1 py-2 px-3 text-sm font-medium text-center text-white bg-blue-500 hover:bg-blue-600 hover:no-underline hover:text-white transition ease-in-out delay-200 hover:cursor-pointer"
                 >
                   Read more
                 </a>
