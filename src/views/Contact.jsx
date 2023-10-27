@@ -81,7 +81,7 @@ const Contact = () => {
 
   return (
     <div id="contact" className={"text-black pt-24 md:h-screen"}>
-      <div className="bg-gray-50 max-w-7xl mx-auto x-4 sm:px-6 lg:px-8 px-4 border mt-4 py-8">
+      <div className="max-w-7xl mx-auto x-4 sm:px-6 lg:px-8 px-4 border mt-4 py-8">
         <h2 className="text-5xl font-bold px-4 md:px-0 text-center z-0">
           Contact me
         </h2>
@@ -121,7 +121,7 @@ const Contact = () => {
               name="name"
               value={formData.name} 
               id="name"
-              className=" text-gray-900 text-sm block w-full p-2.5"
+              className=" text-gray-900 text-sm block w-full p-2.5 border border-gray-500"
               placeholder="Enter your name"
               required
               onChange={handleChange}
@@ -138,7 +138,7 @@ const Contact = () => {
               type="email"
               name="email"
               id="email"
-              className="text-gray-900 text-sm block w-full p-2.5"
+              className="text-gray-900 text-sm block w-full p-2.5 border border-gray-500"
               placeholder="Enter your email"
               required
               onChange={handleChange}
@@ -154,7 +154,7 @@ const Contact = () => {
             </label>
             <textarea
               id="message"
-              className="text-gray-900 h-28 w-full text-sm block p-2.5"
+              className="text-gray-900 h-28 w-full text-sm block p-2.5 border border-gray-500"
               placeholder="Enter your message"
               required
               name="message"
@@ -165,7 +165,7 @@ const Contact = () => {
           <div className="flex justify-end ">
             <button
               type="submit"
-              className="bg-green-600 text-white px-4 py-2 w-40 flex items-center justify-center hover:bg-green-500 transition-all ease-in-out duration-300"
+              className="border-gradient-to-r border-2 border-green-500 text-green-500 font-bold py-2 px-4 rounded bg-transparent hover:text-white hover:bg-green-500 transition ease-in-out delay-150"
             >
               <span className="mr-2">Send</span>
               <SendOutlined />

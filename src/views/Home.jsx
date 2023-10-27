@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import React from "react";
 import Typical from "react-typical";
 import consoleImage from "../assets/console.png";
-import programmingImage from "../assets/programming.gif";
+import dev from "../assets/dev.jpg";
 import { FilePdfOutlined } from "@ant-design/icons";
 
 const Home = () => {
@@ -32,6 +32,7 @@ const Home = () => {
                 src={consoleImage}
                 alt="Console Icon"
                 className="h-16 mr-2"
+                width={"80rem"} height="8rem"
               />
               <motion.span className="text-black">Hi, I am Mohamed</motion.span>
             </div>
@@ -86,7 +87,7 @@ const Home = () => {
             },
             hidden: { opacity: 1, y: 80 },
           }}
-          src={programmingImage}
+          src={dev}
           alt="Programming Image"
           className="md:w-3/6 hidden sm:block"
         />

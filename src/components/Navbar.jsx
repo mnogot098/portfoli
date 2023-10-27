@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
 import { Link } from "react-scroll";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 import logo from "../assets/logo.jpg";
 
 const Navbar = () => {
@@ -27,11 +27,11 @@ const Navbar = () => {
       route: "blogs",
     },
     {
-      name: "Contact",
-      route: "contact",
+      name: "Certifications",
+      route: "certifications",
     },
     {
-      name: "Certifications",
+      name: "Contact",
       route: "contact",
     },
   ];
@@ -47,21 +47,25 @@ const Navbar = () => {
                 "text-xl font-medium text-decoration-none whitespace-nowrap text-black"
               }
             >
-              <img src={logo} className="h-12" alt="not found"/>
+              <img src={logo} width="100px" height="50px" alt="not found" />
             </a>
           </div>
           <div className="hidden justify-between items-center w-full md:flex md:w-auto ">
             <ul
-              className={"flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-md md:font-medium"}
+              className={
+                "flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-md md:font-medium"
+              }
             >
               {links.map((el) => (
                 <li className="cursor-pointer" key={uuidv4()}>
-                  <Link 
+                  <Link
                     to={el.route}
-                    activeClass={"text-white bg-blue-500"}
+                    activeClass={"text-white bg-pink-600"}
                     spy={true}
                     smooth={true}
-                    className={"block py-2 px-3 text-black hover:no-underline"}
+                    className={
+                      "block py-2 px-3 text-black font-bold hover:no-underline"
+                    }
                   >
                     {el.name}
                   </Link>
@@ -84,9 +88,10 @@ const Navbar = () => {
           >
             <ul className="md:hidden md:flex-row md:space-y-8 md:mt-0 md:text-md md:font-medium">
               {links.map((el) => (
-                <Link key={uuidv4()}
+                <Link
+                  key={uuidv4()}
                   to={el.route}
-                  activeClass={"text-white bg-blue-500"}
+                  activeClass={"text-white bg-pink-500"}
                   className={
                     "hover:bg-blue-500 text-white block px-3 py-2 rounded-md text-base font-medium mt-1 hover:text-white"
                   }

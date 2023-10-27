@@ -1,40 +1,40 @@
-import { useState, useEffect } from "react";
-import Contact from "./views/Contact";
+import { useEffect, useState } from "react";
+import LoadingScreen from "./components/LoadingScreen";
 import Navbar from "./components/Navbar";
 import About from "./views/About";
-import Home from './views/Home'
-import Services from "./views/Services";
-import Projects from "./views/Projects";
-import LoadingScreen from "./components/LoadingScreen";
-import { ThemeProvider } from "./themeProvider";
 import Blogs from "./views/Blogs";
+import Certifications from "./views/Certifications";
+import Contact from "./views/Contact";
 import Footer from "./views/Footer";
+import Home from "./views/Home";
+import Projects from "./views/Projects";
+import Services from "./views/Services";
 
 function App() {
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
-    setTimeout(() => setLoading(false), 1000)
-  }, [])
+    setTimeout(() => setLoading(false), 1000);
+  }, []);
 
   return (
-      <>
+    <>
+      {!loading ? (
+        <div>
+          <Navbar />
+          <Home />
+          <About />
+          <Services />
+          <Projects />
+          <Blogs />
+          <Certifications />
+          <Contact />
 
-        {!loading ? (
-          <div >
-            <Navbar />
-            <Home />
-            <About />
-            <Services />
-            <Projects />
-            <Blogs/>
-            <Contact />
-            <Footer />
-          </div>
-
-        ) : (
-          <LoadingScreen />
-        )}
-      </>
+          <Footer />
+        </div>
+      ) : (
+        <LoadingScreen />
+      )}
+    </>
   );
 }
 

@@ -31,7 +31,7 @@ const Card = ({ imageUrl, title, description, linkUrl }) => {
         <div className="flex justify-end">
           <a
             href={linkUrl}
-            className="inline-flex items-center m-1 py-2 px-3 text-sm font-medium text-center text-white bg-blue-500 hover:bg-blue-600 hover:no-underline hover:cursor-pointer hover:text-white transition ease-in-out delay-200"
+            className="border-gradient-to-r border-2 border-blue-500 border-pink-500 text-pink-500 font-bold py-2 px-4 rounded bg-transparent hover:text-white hover:bg-pink-500 hover:no-underline transition ease-in-out delay-150 cursor-pointer"
           >
             Read more
           </a>

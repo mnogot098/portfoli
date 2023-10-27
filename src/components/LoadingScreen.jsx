@@ -7,7 +7,6 @@ const LoadingScreen = () => {
         <img
           src={laoding}
           alt=""
-          className="h-12"
         />
       </div>
     </div>
