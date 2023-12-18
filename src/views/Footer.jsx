@@ -18,7 +18,7 @@ const Footer = () => {
       </div>
       <div className="flex items-center mx-4 py-2 hover:border-b hover:border-gray-500 transition duration-300">
         <img src={phone} alt="not found" className="h-9 mx-2" />
-        <span>(+217) 7 52 74 87 20</span>
+        <span>+ (217) 7 62 77 24 81</span>
       </div>
       <div className="flex items-center mx-4 py-2 hover:border-b hover:border-gray-500 transition duration-300">
         <img src={location} alt="not found" className="h-9 mx-2" />

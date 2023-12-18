@@ -33,7 +33,7 @@ const Card = ({ imageUrl, title, description, linkUrl }) => {
             href={linkUrl}
             className="border-gradient-to-r border-2 border-blue-500 border-pink-500 text-pink-500 font-bold py-2 px-4 rounded bg-transparent hover:text-white hover:bg-pink-500 hover:no-underline transition ease-in-out delay-150 cursor-pointer"
           >
-            Read more
+            Read more ...
           </a>
         </div>
       </div>

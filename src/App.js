@@ -10,6 +10,7 @@ import Home from "./views/Home";
 import Projects from "./views/Projects";
 import Services from "./views/Services";
 
+
 function App() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -25,8 +26,8 @@ function App() {
           <About />
           <Services />
           <Projects />
-          <Blogs />
-          <Certifications />
+{/*           <Blogs />
+ */}          <Certifications />
           <Contact />
 
           <Footer />
